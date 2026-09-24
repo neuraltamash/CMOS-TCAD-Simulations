@@ -1,13 +1,19 @@
-# TCAD generated files
+# Generated TCAD files outside project data folders
 *.log
 *.str
+
+# Keep project simulation logs and structures
+!simulation/
+!simulation/*.log
+!structures/
+!structures/*.str
 
 # DeckBuild generated files
 .pmos_output_curves/
 deckbuild/
 *.xml
 
-# Temporary/generated simulation files
+# Temporary files
 *.tmp
 *.bak
 
