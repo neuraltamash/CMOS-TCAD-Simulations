@@ -1,0 +1,21 @@
+# TCAD generated files
+*.log
+*.str
+
+# DeckBuild generated files
+.pmos_output_curves/
+deckbuild/
+*.xml
+
+# Temporary/generated simulation files
+*.tmp
+*.bak
+
+# OS files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Editor/IDE files
+.vscode/
+.idea/

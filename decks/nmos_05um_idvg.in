@@ -1,0 +1,24 @@
+go atlas
+
+mesh infile=nmos_05um.str
+
+models cvt srh
+
+contact name=gate workfunction=4.1
+
+solve init
+
+solve vsource=0
+solve vsubstrate=0
+solve vdrain=0
+solve vgate=0
+
+solve vdrain=0.05
+
+log outf=nmos_05um_idvg.log
+
+solve vgate=0.05 vstep=0.05 vfinal=1.5 name=gate
+
+log off
+
+quit

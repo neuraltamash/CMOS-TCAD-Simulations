@@ -1,0 +1,29 @@
+go atlas
+
+.begin
+
+vin 3 0 0
+vdd 1 0 1.2
+
+an 2=drain 3=gate 0=source 0=substrate infile=nmos.str width=1.0
+ap 2=drain 3=gate 1=source 1=substrate infile=pmos.str width=1.0
+
+.nodeset v(1)=1.2 v(2)=1.2 v(3)=0
+
+.numeric vchange=1 lte=0.01 imaxdc=50
+
+.options print m2ln noshift
+
+.log outfile=cmos_vtc.log
+
+.dc vin 0 1.2 0.01
+
+.end
+
+contact device=an name=gate workfunction=4.1
+model device=an reg=1 conmob fldmob srh
+
+contact device=ap name=gate workfunction=5.1
+model device=ap reg=1 conmob fldmob srh
+
+quit

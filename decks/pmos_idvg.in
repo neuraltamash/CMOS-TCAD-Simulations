@@ -1,0 +1,23 @@
+go atlas
+
+mesh infile=pmos.str
+
+models cvt srh
+
+contact name=gate workfunction=5.1
+
+solve init
+
+solve vsource=0.05
+
+log outf=pmos_idvg.log
+
+solve vgate=0.0 vstep=-0.05 vfinal=-1.5 name=gate
+
+log off
+
+save outf=pmos_idvg.str
+
+tonyplot pmos_idvg.log
+
+quit

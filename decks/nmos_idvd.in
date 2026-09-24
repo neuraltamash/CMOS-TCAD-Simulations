@@ -1,0 +1,31 @@
+go atlas
+
+mesh infile=nmos.str
+
+models cvt srh
+
+contact name=gate workfunction=4.1
+
+solve init
+
+log outf=nmos_idvd.log
+
+solve vgate=0.5
+solve vdrain=0.0
+solve vdrain=0.05 vstep=0.05 vfinal=1.5 name=drain
+
+solve init
+solve vgate=1.0
+solve vdrain=0.0
+solve vdrain=0.05 vstep=0.05 vfinal=1.5 name=drain
+
+solve init
+solve vgate=1.5
+solve vdrain=0.0
+solve vdrain=0.05 vstep=0.05 vfinal=1.5 name=drain
+
+log off
+
+tonyplot nmos_idvd.log
+
+quit
